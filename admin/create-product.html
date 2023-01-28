@@ -6,17 +6,26 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="container">
-      <h1>create product</h1>
-      <form>
+    <div id="create-container">
+      <h1>Create Product</h1>
+      <form id="create-product">
         <p>Title:</p>
         <input type="text" id="title" />
         <p>Price:</p>
         <input type="text" id="price" />
         <p>Stock:</p>
         <input type="text" id="stock" />
+        <p>Image:</p>
+        <input type="text" id="image" />
+        <p>Category:</p>
+        <input type="text" id="category" />
         <p>Description:</p>
-        <input type="text" id="description" />
+        <textarea id="description" name="description" rows="3" cols="40">
+        </textarea>
+        <br />
+        <br />
+
+        <input type="submit" value="Create" />
       </form>
     </div>
 
