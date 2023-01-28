@@ -1,14 +1,22 @@
-// const asyncHandler = require('express-async-handler')
-
+// importing mongodb schema for use in the controller
 const Product = require('../models/db')
 // const User = require('../models/userModel')
 
+// Get all products
 const getProducts = async (req, res) => {
   const products = await Product.find()
 
   res.status(200).json(products)
 }
 
+// Get one product by id
+const getOneProduct = async (req, res) => {
+  const product = await Product.findById(req.params.id)
+
+  res.status(200).json(product)
+}
+
+// Create product
 const createProduct = async (req, res) => {
   if (
     !req.body.title &&
@@ -32,9 +40,7 @@ const createProduct = async (req, res) => {
   res.status(200).json(product)
 }
 
-// @desc    Update Product
-// @route   PUT /api/Products/:id
-// @access  Private
+// Update product
 const updateProduct = async (req, res) => {
   const product = await Product.findById(req.params.id)
 
@@ -66,9 +72,7 @@ const updateProduct = async (req, res) => {
   res.status(200).json(updatedProduct)
 }
 
-// @desc    Delete Product
-// @route   DELETE /api/Products/:id
-// @access  Private
+// Delete Product
 const deleteProduct = async (req, res) => {
   const product = await Product.findById(req.params.id)
 
@@ -98,5 +102,6 @@ module.exports = {
   getProducts,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
+  getOneProduct
 }
