@@ -18,7 +18,7 @@ const renderProducts = async () => {
                         <div class="card">
                             <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"     data-mdb-ripple-color="light">
                                 <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"           class="w-100" />
-                                <a href="#!">
+                                <a href="product.html?id=${products.id}!">
                                     <div class="hover-overlay">
                                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
                                     </div>
