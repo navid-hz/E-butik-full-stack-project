@@ -48,7 +48,7 @@ const renderProducts = async () => {
         }
         
     }   
-}
+
 
 window.addEventListener('DOMContentLoaded', () => renderProducts())
 
