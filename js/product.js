@@ -1,22 +1,24 @@
 const id = new URLSearchParams(window.location.search).get('id');
-const getProduct = async (id) => {
-    const res = await fetch('http://localhost:5000/api/store' + id);
-    if (!res.ok) {
-        throw new Error('Could not fetch');
-    } else {
-        const data = await res.json();
-        return data;
-    }
-}
+console.log(id);
+
 let main = document.getElementById('main');
 
 
 const renderProduct = async () => {
-    const res = await fetch('http://localhost:5000/api/store' + id);
+    checkAccessToken();
+
+    const res = await fetch(ROOT + '/api/store/' + id, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+        }
+    });
     if (!res.ok) {
         throw new Error('Could not fetch');
     } else {
         const data = await res.json();
+        console.log(data);
         let html = `
         <div class="container mt-5">
             <!--Grid row-->
@@ -104,6 +106,12 @@ const renderProduct = async () => {
             <!--Grid row-->
         </div>
     `;
-    }    
+
     main.innerHTML = html;
+    }
+    
 }
+    
+
+renderProduct();   
+    
