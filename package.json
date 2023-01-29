@@ -25,5 +25,6 @@
   "bugs": {
     "url": "https://github.com/navid-hz/E-butik-full-stack-project/issues"
   },
-  "homepage": "https://github.com/navid-hz/E-butik-full-stack-project#readme"
+  "homepage": "https://github.com/navid-hz/E-butik-full-stack-project#readme",
+  "proxy": "http://127.0.0.1:5000/api/store"
 }
