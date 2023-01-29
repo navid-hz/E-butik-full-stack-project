@@ -1,84 +1,86 @@
+// button create product
+let btnCreate = document.getElementById('btn-create')
+
 //<<<<<<< Navid-Works
 const createProductForm = () => {
+  // form values
+  let title = document.getElementById('title').value
+  let description = document.getElementById('description').value
+  let price = document.getElementById('price').value
+  let stock = document.getElementById('stock').value
+  let category = document.getElementById('category').value
 
-// button create product
-let btnCreate = document.getElementById('btn-create');
+  console.log(category)
 
-// form values
-let title = document.getElementById('title').value;
-let description = document.getElementById('description').value;
-let price = document.getElementById('price').value;
-let stock = document.getElementById('stock').value;
-let category = document.getElementById('category').value;
-
-// create json object
-let createJson = {
+  // create json object
+  let createJson = {
     title: title,
     description: description,
     price: price,
     stock: stock,
     category: category,
-    date : new Date()
-}
-return createJson;
+    date: new Date()
+  }
+  return createJson
 }
 
 btnCreate.addEventListener('click', async function () {
-    let createJson = createProductForm();
-    console.log(createJson);
+  let createJson = createProductForm()
+  console.log(createJson)
 
-    fetch('http://localhost:3000/products', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(createJson)
-    })
-        .then(response => response.ok ? response.json() : Promise.reject(response))
-        .catch(error => console.log(error))
-
-});
-=======
+  await fetch('http://127.0.0.1:5000/api/store', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(createJson)
+  })
+    .then((response) =>
+      response.ok ? response.json() : Promise.reject(response)
+    )
+    .catch((error) => console.log(error))
+})
+// =======
 //async function createProduct() {
-  // console.log(JSON.stringify({username:"admin", password:"123"}));
-  // checkAccessToken()
+// console.log(JSON.stringify({username:"admin", password:"123"}));
+// checkAccessToken()
 
-<<<<<<< HEAD
-  try {
-    document
-      .getElementById('create-product')
-      .addEventListener('submit', async function (e) {
-        e.preventDefault()
+// <<<<<<< HEAD
+// try {
+//   document
+//     .getElementById('create-product')
+//     .addEventListener('submit', async function (e) {
+//       e.preventDefault()
 
-        let title = document.getElementById('title').value
-        let price = document.getElementById('price').value
-        let stock = document.getElementById('stock').value
-        let image = document.getElementById('image').value
-        let category = document.getElementById('category').value
-        let description = document.getElementById('description').value
+//       let title = document.getElementById('title').value
+//       let price = document.getElementById('price').value
+//       let stock = document.getElementById('stock').value
+//       let image = document.getElementById('image').value
+//       let category = document.getElementById('category').value
+//       let description = document.getElementById('description').value
 
-        let formDataObject = {
-          title,
-          price,
-          stock,
-          image,
-          category,
-          description
-        }
-        console.log(JSON.stringify(formDataObject))
+//       let formDataObject = {
+//         title,
+//         price,
+//         stock,
+//         image,
+//         category,
+//         description
+//       }
+//       console.log(JSON.stringify(formDataObject))
 
-        const response2 = await fetch('http://127.0.0.1:5000/api/store', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-            // Authorization: 'Bearer ' + localStorage.getItem('accessToken')
-          },
-          body: JSON.stringify(formDataObject)
-        })
+//       const response2 = await fetch('http://127.0.0.1:5000/api/store', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json'
+//           // Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+//         },
+//         body: JSON.stringify(formDataObject)
+//       })
 
-        location.replace('../../products.html') // Going to products.html page
-      })
-  } catch (error) {
-    console.log(error)
-  }
-}
+//       location.replace('../../products.html') // Going to products.html page
+//     })
+// } catch (error) {
+//   console.log(error)
+// }
+// }
