@@ -26,15 +26,15 @@ async function createProduct() {
         console.log(JSON.stringify(formDataObject))
 
         const response2 = await fetch('http://127.0.0.1:5000/api/store', {
-          method: 'POST', // *GET, POST, PUT, DELETE, etc.
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json'
             // Authorization: 'Bearer ' + localStorage.getItem('accessToken')
           },
-          body: JSON.stringify(formDataObject) // body data type must match "Content-Type" header
+          body: JSON.stringify(formDataObject)
         })
 
-        // location.replace('../../products.html') // Redirect to index.html
+        location.replace('../../products.html') // Going to products.html page
       })
   } catch (error) {
     console.log(error)
