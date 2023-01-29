@@ -9,7 +9,11 @@ const renderProductsTable = async () => {
         throw new Error('Cannot fetch the data');
     } else {
         if (products.length === 0) {
-            productsCardsContainer.innerHTML = '<h1>There are no products</h1>';
+            productsTable.innerHTML = `
+            <tr>
+                <td>There are no products</td>
+            </tr>
+            `;
         } else {
             let template = '';
             products.forEach(products => {
@@ -35,7 +39,7 @@ const renderProductsTable = async () => {
             });
         }
     }
-    productsCardsContainer.innerHTML = template;
+    productsTable.innerHTML = template;
 }
 
 const deleteProduct = async (id) => {
