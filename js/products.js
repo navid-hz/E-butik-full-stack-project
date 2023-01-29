@@ -1,11 +1,22 @@
+console.log(localStorage.getItem('accessToken'));
+
 const productsCardsContainer = document.getElementById('products-cards-container');
+console.log(productsCardsContainer);
 
 const renderProducts = async () => {
-    let url = 'http://localhost:5000/api/store';
-    let response = await fetch(url);
-    let products = await response.json();
+    checkAccessToken();
+
+    //let url = 'http://localhost:5000/api/store';
+    let response1 = await fetch(ROOT + '/api/store', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+        }});
+
+    let products = await response1.json();
     
-    if (response.status !== 200) {
+    if (response1.status !== 200) {
         throw new Error('Cannot fetch the data');
     } else {
         if (products.length === 0) {
@@ -29,7 +40,7 @@ const renderProducts = async () => {
                                     <h5 class="card-title mb-2">${products.title}</h5>
                                 </a>
                                 <a href="" class="text-reset ">
-                                    <p>${products.categoty[0]}</p>
+                                    <p>${products.categoty}</p>
                                 </a>
                                 <h6 class="mb-3 price">${products.prise}</h6>
                             </div>
@@ -37,9 +48,10 @@ const renderProducts = async () => {
                     </div>
                 `;
             });
+            productsCardsContainer.innerHTML = template;
         }
-    }
-    productsCardsContainer.innerHTML = template;
+        
+    }   
 }
 
 window.addEventListener('DOMContentLoaded', () => renderProducts());
