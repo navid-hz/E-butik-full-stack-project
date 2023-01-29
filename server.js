@@ -13,10 +13,9 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/api/store', require('./routes/storeRoutes'))
+app.use('/api/store', verifyToken, require('./routes/storeRoutes'))
 
-const userRouter = require('./routes/apiUsers')
-app.use('/api-users', apiUserRouter)
+app.use('/user', require('./routes/userRoute'))
 
 function verifyToken(req, res, next) {
   const bearer = req.headers['authorization']

@@ -1,13 +1,10 @@
-const User = require('../models/APIUser')
+const User = require('../models/userSchema')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-exports.registerAPIUser = async (req, res) => {
+exports.registerUser = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
-
-    // Checking out the hashed password
-    // res.json({password: req.body.password, hashedPassword: hashedPassword});
 
     const user = new User({
       username: req.body.username,
@@ -21,7 +18,7 @@ exports.registerAPIUser = async (req, res) => {
   }
 }
 
-exports.generateAccessToken = async (req, res) => {
+exports.generateToken = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username })
     const isPasswordCorrect = await bcrypt.compare(
@@ -35,7 +32,8 @@ exports.generateAccessToken = async (req, res) => {
         date: user.date
       }
 
-      const accessToken = jwt.sign(payLoad, process.env.ACCESS_TOKEN_SECRET)
+      const accessToken = jwt.sign(payLoad, process.env.JWT_SECRET)
+
       res.json({ accessToken: accessToken })
     } else {
       res.json({ message: 'Incorrect user information' })
