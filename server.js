@@ -13,10 +13,11 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+// Getting the routes for products with verified token
 app.use('/api/store', verifyToken, require('./routes/storeRoutes'))
-
 app.use('/user', require('./routes/userRoute'))
 
+// Veryfi token
 function verifyToken(req, res, next) {
   const bearer = req.headers['authorization']
   const token = bearer && bearer.split(' ')[1]

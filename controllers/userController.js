@@ -2,6 +2,7 @@ const User = require('../models/userSchema')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
+// Function for register user
 exports.registerUser = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10)
@@ -18,9 +19,12 @@ exports.registerUser = async (req, res) => {
   }
 }
 
+// Function for generate token
 exports.generateToken = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username })
+
+    // Check if the password correct
     const isPasswordCorrect = await bcrypt.compare(
       req.body.password,
       user.password
@@ -32,6 +36,7 @@ exports.generateToken = async (req, res) => {
         date: user.date
       }
 
+      // Generate token if user and password correct
       const accessToken = jwt.sign(payLoad, process.env.JWT_SECRET)
 
       res.json({ accessToken: accessToken })
