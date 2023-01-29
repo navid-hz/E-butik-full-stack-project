@@ -49,18 +49,6 @@ const updateProduct = async (req, res) => {
     throw new Error('Product not found')
   }
 
-  // Check for user
-  // if (!req.user) {
-  //   res.status(401)
-  //   throw new Error('User not found')
-  // }
-
-  // Make sure the logged in user matches the Product user
-  // if (Product.user.toString() !== req.user.id) {
-  //   res.status(401)
-  //   throw new Error('User not authorized')
-  // }
-
   const updatedProduct = await Product.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -80,18 +68,6 @@ const deleteProduct = async (req, res) => {
     res.status(400)
     throw new Error('Product not found')
   }
-
-  // Check for user
-  // if (!req.user) {
-  //   res.status(401)
-  //   throw new Error('User not found')
-  // }
-
-  // Make sure the logged in user matches the Product user
-  // if (Product.user.toString() !== req.user.id) {
-  //   res.status(401)
-  //   throw new Error('User not authorized')
-  // }
 
   await product.remove()
 

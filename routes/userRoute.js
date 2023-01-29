@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const contoller = require('../controllers/apiUserController')
+const userController = require('../controllers/userController')
 
-router.post('/register', contoller.registerAPIUser)
-router.post('/token', contoller.generateAccessToken)
+// Adding routes for user controllers
+router.post('/register', userController.registerUser)
+router.post('/token', userController.generateToken)
 
 module.exports = router
