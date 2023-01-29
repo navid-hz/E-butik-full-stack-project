@@ -1,11 +1,177 @@
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <title>Create Product</title>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet"/>
+    
+  </head>
+  <body>
+    <!-- Navbar -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-white">
+  <!-- Container wrapper -->
+  <div class="container">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-sm-0" href="https://mdbootstrap.com/">
+              <img src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp" height="20" alt="MDB Logo" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item active">
+                  <a class="nav-link" href="https://mdbootstrap.com/">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://mdbootstrap.com/docs/standard/">About MDB</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://mdbootstrap.com/docs/standard/getting-started/installation/">Free download</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://mdbootstrap.com/education/bootstrap/">Free tutorials</a>
+              </li>
+          </ul>
+          <!-- Left links -->
+      </div>
+      <!-- Collapsible wrapper -->
+
+      <!-- Right elements -->
+      <div class="d-flex align-items-center">
+          <!-- Icon -->
+          <a class="nav-link me-3" href="#">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="badge rounded-pill badge-notification bg-danger">1</span>
+          </a>
+
+          <a class="nav-link me-3" href="#">
+              <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class="nav-link me-3" href="#">
+              <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://github.com/mdbootstrap/bootstrap-material-design" class="border rounded px-2 nav-link" target="_blank"> <i class="fab fa-github me-2"></i>MDB GitHub </a>
+      </div>
+      <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+<!--Main layout-->
+<main class="mt-5 pt-4">
+  <div class="container">
+      <!-- Heading -->
+      <h2 class="my-5 text-center">Checkout form</h2>
+
+      <!--Grid row-->
+      <div class="row">
+          <!--Grid column-->
+          <div class="col-md-8 mb-4">
+              <!--Card-->
+              <div class="card p-4">
+                  <!--Grid row-->
+                  
+                      
+
+                  <!--Username-->
+                  <div class="input m-2">
+
+                    <div class="form-outline  m-2">
+                      <input type="text" id="title" class="form-control" />
+                      <label class="form-label" for="typeText">Title of product</label>
+                    </div>
+
+                    <div class="form-outline m-2">
+                      <input type="number" id="price" class="form-control" />
+                      <label class="form-label" for="typeText">Price</label>
+                    </div>
+
+                    <div class="form-outline m-2">
+                      <input type="number" id="stock" class="form-control" />
+                      <label class="form-label" for="typeText">Stock</label>
+                    </div>
+
+                    <div class="form-outline m-2">
+                      <input type="text" id="Category" class="form-control" />
+                      <label class="form-label" for="typeText">Category of product</label>
+                    </div>
+
+                    <div class="form-outline m-2">
+                      <label for="description" class="form-label">Description</label>
+                      <textarea class="form-control" id="description" rows="3"></textarea>
+                    </div>
+
+                  </div>
+                  
+                  <!--Grid row-->
+                  <div class="row">
+                      <!--Grid column-->
+                      
+                  </div>
+                      </div>
+                      
+                  <hr class="mb-4" />                    
+                <button class="btn btn-primary" type="button" id="btn-update">Save</button>
+              
+              
+          
+          
+      </div>
+      <!--Grid row-->
+  </div>
+</main>
+<!--Main layout-->
+
+<!-- footer -->
+<footer class="text-center text-white mt-4" style="background-color: #607d8b;">
+  
+
+  <hr class="text-dark" />
+
+  <div class="container">
+      <!-- Section: Social media -->
+      <section class="mb-3">
+          <!-- Facebook -->
+          <a class="btn-link btn-floating btn-lg text-white" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+          <!-- Twitter -->
+          <a class="btn-link btn-floating btn-lg text-white" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+          <!-- Google -->
+          <a class="btn-link btn-floating btn-lg text-white" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+
+          <!-- Instagram -->
+          <a class="btn-link btn-floating btn-lg text-white" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+          <!-- YouTube -->
+          <a class="btn-link btn-floating btn-lg text-white" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-youtube"></i></a>
+          <!-- Github -->
+          <a class="btn-link btn-floating btn-lg text-white" href="#!" role="button" data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); text-color: #e0e0e0;">
+      © 2022 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">E-Butik</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
+
     <script src="js/update-product.js"></script>
-</body>
+  </body>
 </html>
