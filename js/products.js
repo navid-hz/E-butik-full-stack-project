@@ -1,9 +1,9 @@
 const productsCardsContainer = document.getElementById(
   'products-cards-container'
 )
-
+console.log(localStorage.getItem('accessToken'));
 const renderProducts = async () => {
-    checkAccessToken();
+    await checkAccessToken();
 
     //let url = 'http://localhost:5000/api/store';
     let response1 = await fetch(ROOT + '/api/store', {

@@ -1,4 +1,4 @@
-
+//localStorage.clear();
 const ROOT = 'http://localhost:5000';
 
 async function genetateAccessToken() { 
@@ -24,11 +24,13 @@ async function genetateAccessToken() {
         console.log(error);
     }
 }
-function checkAccessToken() {
+async function checkAccessToken() {
     if (localStorage.getItem('accessToken')) {
         console.log('accessToken is present');
+        let token = localStorage.getItem.stringify('accessToken');
+        console.log(token);
         console.log(localStorage.getItem('accessToken'));
     } else {
-        genetateAccessToken();
+       await genetateAccessToken();
     }
 }
