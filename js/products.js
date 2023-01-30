@@ -14,6 +14,7 @@ const renderProducts = async () => {
         }});
 
     let products = await response1.json();
+    console.log(products);
     
     if (response1.status !== 200) {
         throw new Error('Cannot fetch the data');
