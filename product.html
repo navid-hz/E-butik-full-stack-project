@@ -11,97 +11,62 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet"/>
 </head>
 <body>
-    <main class="mt-5 pt-4" id="main">
-        <!-- <div class="container mt-5"> -->
-            <!--Grid row-->
-          <!--  <div class="row"> -->
-                <!--Grid column-->
-             <!--   <div class="col-md-6 mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="" />
-                </div> -->
-                <!--Grid column-->
+  <!--Main layout-->
+  <main class="mt-5 pt-4" id="main">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark mt-3 mb-5 shadow p-2" style="background-color: #607D8B">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+
+        <!-- Navbar brand -->
     
-                <!--Grid column-->
-                <!-- <div class="col-md-6 mb-4"> -->
-                    <!--Content-->
-                    <!-- <div class="p-4" id="content">
-                        <div class="mb-3">
-                            <a href="">
-                                <span class="badge bg-dark me-1">Category 2</span>
-                            </a>
-                        </div>
+        <!-- <a class="navbar-brand" href="#">Categories:</a> -->
+
+        <!-- Toggle button -->
+        <button 
+       class="navbar-toggler" 
+       type="button" 
+       data-mdb-toggle="collapse" 
+       data-mdb-target="#navbarSupportedContent2" 
+       aria-controls="navbarSupportedContent2" 
+       aria-expanded="false" 
+       aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <!-- Link -->
+            <li class="nav-item acitve">
+              <a class="nav-link text-white" href="products.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="admin/manage-products.html">Admin Panel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="admin/create-product.html">Create Product</a>
+            </li>
+          </ul>
+      
+          <!-- Search -->
+          <!-- <form class="w-auto py-1" style="max-width: 12rem">
+          <input type="search" class="form-control rounded-0" placeholder="Search" aria-label="Search">
+          </form> -->
+        </div>
+      </div>
+        <!-- Container wrapper -->
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Js inject  -->
+
+  </main>
     
-                        <p class="lead">
-                            <span class="me-1">
-                                $200
-                            </span>
-                        </p>
     
-                        <strong><p style="font-size: 20px;">Description</p></strong>
-    
-                        <p><strong>Description: </strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor suscipit libero eos atque quia ipsa sint voluptatibus! Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
-    
-                        <form class="d-flex justify-content-left"> -->
-                            <!-- Default input -->
-                            <!-- <div class="form-outline me-1" style="width: 100px;">
-                                <label for="stock">
-                                    Stock: 
-                                </label>
-                                <input type="number" value="1" class="form-control" dir="stock" />
-                            </div>
-                            <button class="btn btn-primary ms-1" type="submit">
-                                Add to cart
-                                <i class="fas fa-shopping-cart ms-1"></i>
-                            </button>
-                        </form>
-                    </div> -->
-                    <!--Content-->
-                <!-- </div> -->
-                <!--Grid column-->
-            <!-- </div> -->
-            <!--Grid row-->
-    
-            <!-- <hr /> -->
-    
-            <!--Grid row-->
-            <!-- <div class="row d-flex justify-content-center"> -->
-                <!--Grid column-->
-                <!-- <div class="col-md-6 text-center">
-                    <h4 class="my-4 h4">Additional information</h4>
-    
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus suscipit modi sapiente illo soluta odit voluptates, quibusdam officia. Neque quibusdam quas a quis porro? Molestias illo neque eum in laborum.</p>
-                </div> -->
-                <!--Grid column-->
-            <!-- </div> -->
-            <!--Grid row-->
-    
-            <!--Grid row-->
-            <!-- <div class="row"> -->
-                <!--Grid column-->
-                <!-- <div class="col-lg-4 col-md-12 mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="" />
-                </div> -->
-                <!--Grid column-->
-    
-                <!--Grid column-->
-                <!-- <div class="col-lg-4 col-md-6 mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="" />
-                </div> -->
-                <!--Grid column-->
-    
-                <!--Grid column-->
-                <!-- <div class="col-lg-4 col-md-6 mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="" />
-                </div> -->
-                <!--Grid column-->
-            <!-- </div> -->
-            <!--Grid row-->
-        <!-- </div> --> 
-    </main>
-    <!--Main layout-->
-    
-    <!-- footer -->
-    <footer class="text-center text-white mt-4" style="background-color: #607D8B">
+  <!-- footer -->
+  <footer class="text-center text-white mt-4" style="background-color: #607D8B">
     
     <hr class="text-dark">
     
@@ -112,7 +77,7 @@
         <!-- Facebook -->
         <a
           class="btn-link btn-floating btn-lg text-white"
-          href="#!"
+          href="https://www.facebook.com/jensenyh/" target="_blank"
           role="button"
           data-mdb-ripple-color="dark"
           ><i class="fab fa-facebook-f"></i
@@ -121,26 +86,17 @@
         <!-- Twitter -->
         <a
           class="btn-link btn-floating btn-lg text-white"
-          href="#!"
+          href="https://twitter.com/jensenyhskola?lang=en" target="_blank"
           role="button"
           data-mdb-ripple-color="dark"
           ><i class="fab fa-twitter"></i
-        ></a>
-  
-        <!-- Google -->
-        <a
-          class="btn-link btn-floating btn-lg text-white"
-          href="#!"
-          role="button"
-          data-mdb-ripple-color="dark"
-          ><i class="fab fa-google"></i
-        ></a>
-  
+        ></a>  
+         
         <!-- Instagram -->
         <a
           class="btn-link btn-floating btn-lg text-white"
-          href="#!"
-          role="button"
+          href="https://www.instagram.com/jensen_yh/?hl=en"
+          role="button" target="_blank"
           data-mdb-ripple-color="dark"
           ><i class="fab fa-instagram"></i
         ></a>
@@ -148,7 +104,7 @@
         <!-- YouTube -->
         <a
           class="btn-link btn-floating btn-lg text-white"
-          href="#!"
+          href="https://www.youtube.com/channel/UC9aVnWt88DlyLEzDLlO7ThQ" target="_blank"
           role="button"
           data-mdb-ripple-color="dark"
           ><i class="fab fa-youtube"></i
@@ -156,7 +112,7 @@
         <!-- Github -->
         <a
           class="btn-link btn-floating btn-lg text-white"
-          href="#!"
+          href="https://github.com/navid-hz/E-butik-full-stack-project" target="_blank"
           role="button"
           data-mdb-ripple-color="dark"
           ><i class="fab fa-github"></i
