@@ -1,7 +1,7 @@
 // button create product
 let btnCreate = document.getElementById('btn-create')
 
-//<<<<<<< Navid-Works
+
 const createProductForm = () => {
   // form values
   let title = document.getElementById('title').value
@@ -24,6 +24,14 @@ const createProductForm = () => {
   return createJson
 }
 
+const formClear = () => {
+    document.getElementById('title').value = ''
+    document.getElementById('description').value = ''
+    document.getElementById('price').value = ''
+    document.getElementById('stock').value = ''
+    document.getElementById('category').value = ''
+}
+
 btnCreate.addEventListener('click', async function () {
   let createJson = createProductForm()
   console.log(createJson)
@@ -38,104 +46,8 @@ btnCreate.addEventListener('click', async function () {
     })
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
+        .finally(formClear()) // clear form after submit
+
+    
 
 });
-// =======
-// //async function createProduct() {
-//   // console.log(JSON.stringify({username:"admin", password:"123"}));
-//   // checkAccessToken()
-
-// <<<<<<< HEAD
-//   try {
-//     document
-//       .getElementById('create-product')
-//       .addEventListener('submit', async function (e) {
-//         e.preventDefault()
-
-//         let title = document.getElementById('title').value
-//         let price = document.getElementById('price').value
-//         let stock = document.getElementById('stock').value
-//         let image = document.getElementById('image').value
-//         let category = document.getElementById('category').value
-//         let description = document.getElementById('description').value
-
-//         let formDataObject = {
-//           title,
-//           price,
-//           stock,
-//           image,
-//           category,
-//           description
-//         }
-//         console.log(JSON.stringify(formDataObject))
-
-//         const response2 = await fetch('http://127.0.0.1:5000/api/store', {
-//           method: 'POST',
-//           headers: {
-//             'Content-Type': 'application/json'
-//             // Authorization: 'Bearer ' + localStorage.getItem('accessToken')
-//           },
-//           body: JSON.stringify(formDataObject)
-//         })
-
-//         location.replace('../../products.html') // Going to products.html page
-//       })
-//   } catch (error) {
-//     console.log(error)
-//   }
-  await fetch('http://127.0.0.1:5000/api/store', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(createJson)
-  })
-    .then((response) =>
-      response.ok ? response.json() : Promise.reject(response)
-    )
-    .catch((error) => console.log(error))
-})
-// =======
-//async function createProduct() {
-// console.log(JSON.stringify({username:"admin", password:"123"}));
-// checkAccessToken()
-
-// <<<<<<< HEAD
-// try {
-//   document
-//     .getElementById('create-product')
-//     .addEventListener('submit', async function (e) {
-//       e.preventDefault()
-
-//       let title = document.getElementById('title').value
-//       let price = document.getElementById('price').value
-//       let stock = document.getElementById('stock').value
-//       let image = document.getElementById('image').value
-//       let category = document.getElementById('category').value
-//       let description = document.getElementById('description').value
-
-//       let formDataObject = {
-//         title,
-//         price,
-//         stock,
-//         image,
-//         category,
-//         description
-//       }
-//       console.log(JSON.stringify(formDataObject))
-
-//       const response2 = await fetch('http://127.0.0.1:5000/api/store', {
-//         method: 'POST',
-//         headers: {
-//           'Content-Type': 'application/json'
-//           // Authorization: 'Bearer ' + localStorage.getItem('accessToken')
-//         },
-//         body: JSON.stringify(formDataObject)
-//       })
-
-//       location.replace('../../products.html') // Going to products.html page
-//     })
-// } catch (error) {
-//   console.log(error)
-// }
-// }

@@ -35,7 +35,7 @@ const renderProduct = async () => {
                     <div class="p-4" id="content">
                         <div class="mb-3">
                             <a href="">
-                                <span class="badge bg-dark me-1">Category 2</span>
+                                <span class="badge bg-dark me-1">${data.category[0]}</span>
                             </a>
                         </div>
     
