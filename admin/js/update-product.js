@@ -1,6 +1,9 @@
 let updateBtn = document.getElementById('btn-update');
 const id = new URLSearchParams(window.location.search).get('id');
+console.log(id);
 const getProduct = async (id) => {
+    await checkAccessToken();
+
     const res = await fetch(ROOT + '/api/store/' + id, {
         method: 'GET',
         headers: {
@@ -28,6 +31,8 @@ const fillForm =  (data) => {
 
 
 const updateProduct = async (id) => {
+    await checkAccessToken();
+
     let updateJson = updateProductForm();
     console.log(updateJson);
 
@@ -41,7 +46,7 @@ const updateProduct = async (id) => {
     })
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
-        .finally(open(ROOT + '/admin/creat-product.html')) // clear form after submit
+        // .finally(open(ROOT + '/admin/creat-product.html')) // clear form after submit
 }
 
 const updateProductForm = () => {

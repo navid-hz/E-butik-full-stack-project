@@ -1,6 +1,7 @@
 const productsTable = document.getElementById('tbody');
 
 const renderProductsTable = async () => {
+    await checkAccessToken();
 
     let res = await fetch(ROOT + '/api/store', {
         method: 'GET',
@@ -37,7 +38,7 @@ const renderProductsTable = async () => {
                   </a>
                 </td>
                 <td id="del-btn">
-                  <a href="${deleteProduct(products._id)}}" class="tm-product-delete-link">
+                  <a href="" class="tm-product-delete-link">
                     <i class="far fa-trash-alt tm-product-delete-icon"></i>
                   </a>
                 </td>
@@ -48,10 +49,12 @@ const renderProductsTable = async () => {
         }
         
     }
-    
+    document.getElementById('del-btn').addEventListener('click', () => deleteProduct(products._id));
+    // document.getElementById('setting-btn').addEventListener('click', () => updateProduct(products._id));
 }
 
 const deleteProduct = async (id) => {
+    await checkAccessToken();
     
     let res2 = await fetch(ROOT + '/api/store/' + id, {
         method: 'DELETE',

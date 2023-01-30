@@ -37,9 +37,9 @@ const renderProducts = async () => {
                                     <h5 class="card-title mb-2">${products.title}</h5>
                                 </a>
                                 <a href="" class="text-reset ">
-                                    <p>${products.categoty}</p>
+                                    <p>${products.category.join()}</p>
                                 </a>
-                                <h6 class="mb-3 price">${products.prise}</h6>
+                                <h6 class="mb-3 price">${products.price}</h6>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@ let main = document.getElementById('main');
 
 
 const renderProduct = async () => {
-    checkAccessToken();
+    await   checkAccessToken();
 
     const res = await fetch(ROOT + '/api/store/' + id, {
         method: 'GET',
@@ -25,7 +25,7 @@ const renderProduct = async () => {
             <div class="row">
                 <!--Grid column-->
                 <div class="col-md-6 mb-4">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="" />
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="img-fluid" alt="" />
                 </div>
                 <!--Grid column-->
     
@@ -35,7 +35,7 @@ const renderProduct = async () => {
                     <div class="p-4" id="content">
                         <div class="mb-3">
                             <a href="">
-                                <span class="badge bg-dark me-1">${data.category[0]}</span>
+                                <span class="badge bg-dark me-1">${data.category.join()}</span>
                             </a>
                         </div>
     
