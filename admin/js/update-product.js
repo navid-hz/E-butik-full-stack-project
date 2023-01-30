@@ -1,6 +1,9 @@
-let updateBtn = document.getElementById('btn-update');
+
 const id = new URLSearchParams(window.location.search).get('id');
 console.log(id);
+
+let updateBtn = document.getElementById('btn-update');
+
 const getProduct = async (id) => {
     await checkAccessToken();
 
@@ -30,7 +33,7 @@ const fillForm =  (data) => {
 }
 
 
-const updateProduct = async (id) => {
+const updateProduct = async () => {
     await checkAccessToken();
 
     let updateJson = updateProductForm();
@@ -46,7 +49,7 @@ const updateProduct = async (id) => {
     })
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
-        // .finally(open(ROOT + '/admin/creat-product.html')) // clear form after submit
+        .finally(open(ROOT + '/admin/creat-product.html')) // clear form after submit
 }
 
 const updateProductForm = () => {
@@ -66,5 +69,5 @@ const updateProductForm = () => {
 }
 
 updateBtn.addEventListener('click', () => {
-    updateProduct(id);
+    updateProduct();
 })

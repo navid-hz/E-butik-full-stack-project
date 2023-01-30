@@ -33,7 +33,7 @@ const renderProductsTable = async () => {
                 <td id="stock">${products.stock}</td>
                 <td id="date">${products.date}</td>
                 <td id="setting-btn">
-                  <a href="http://localhost:5000/api/store/update-product.html?id=${products._id}" class="tm-product-delete-link">
+                  <a href="update-product.html?id=${products._id}" class="tm-product-delete-link">
                     <i class="far fa-trash-alt tm-product-delete-icon"></i>
                   </a>
                 </td>
