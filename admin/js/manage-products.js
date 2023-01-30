@@ -1,11 +1,18 @@
 const productsTable = document.getElementById('tbody');
 
 const renderProductsTable = async () => {
-    let url = 'http://localhost:5000/api/store';
-    let response = await fetch(url);
-    let products = await response.json();
+
+    let res = await fetch(ROOT + '/api/store', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+        }
+    });
+    let products = await res.json();
+    console.log(products);
     
-    if (response.status !== 200) {
+    if (res.status !== 200) {
         throw new Error('Cannot fetch the data');
     } else {
         if (products.length === 0) {
@@ -25,32 +32,38 @@ const renderProductsTable = async () => {
                 <td id="stock">${products.stock}</td>
                 <td id="date">${products.date}</td>
                 <td id="setting-btn">
-                  <a href="http://localhost:5000/api/store/update-product.html?id=${products.id}" class="tm-product-delete-link">
+                  <a href="http://localhost:5000/api/store/update-product.html?id=${products._id}" class="tm-product-delete-link">
                     <i class="far fa-trash-alt tm-product-delete-icon"></i>
                   </a>
                 </td>
                 <td id="del-btn">
-                  <a href="${deleteProduct(products.id)}}" class="tm-product-delete-link">
+                  <a href="${deleteProduct(products._id)}}" class="tm-product-delete-link">
                     <i class="far fa-trash-alt tm-product-delete-icon"></i>
                   </a>
                 </td>
               </tr>
                 `;
             });
+        productsTable.innerHTML = template;
         }
+        
     }
-    productsTable.innerHTML = template;
+    
 }
 
 const deleteProduct = async (id) => {
-    let url = `http://localhost:5000/api/store/${id}`;
-    let response = await fetch(url, {
-        method: 'DELETE'
-    } );
-    let data = await response.json();
+    
+    let res2 = await fetch(ROOT + '/api/store/' + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+        }
+    });
+    let data = await res2.json();
     console.log(data);
 
-    if (response.status !== 200) {
+    if (res2.status !== 200) {
         throw new Error('Cannot delete the data');
     } else {
         renderProductsTable();
@@ -58,4 +71,4 @@ const deleteProduct = async (id) => {
 }
     
 
-window.addEventListener('DOMContentLoaded', () => renderProducts());
+window.addEventListener('DOMContentLoaded', () =>  renderProductsTable());
