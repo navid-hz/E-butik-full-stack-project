@@ -1,7 +1,13 @@
 let updateBtn = document.getElementById('btn-update');
 const id = new URLSearchParams(window.location.search).get('id');
 const getProduct = async (id) => {
-    const res = await fetch('http://localhost:5000/api/store' + id);
+    const res = await fetch(ROOT + '/api/store/' + id, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+        }
+    });
     if (!res.ok) {
         throw new Error('Could not fetch');
     } else {
@@ -25,15 +31,17 @@ const updateProduct = async (id) => {
     let updateJson = updateProductForm();
     console.log(updateJson);
 
-    fetch('http://localhost:5000/api/store' + id, {
+    fetch(ROOT + '/api/store/' + id, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
         },
         body: JSON.stringify(updateJson)
     })
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
+        .finally(open(ROOT + '/admin/creat-product.html')) // clear form after submit
 }
 
 const updateProductForm = () => {
