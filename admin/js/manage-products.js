@@ -27,7 +27,6 @@ const renderProductsTable = async () => {
             products.forEach(products => {
                 template += `
                 <tr>
-                <th scope="row"><input type="checkbox" /></th>
                 <td class="tm-product-name" id="title">${products.title}</td>
                 <td id="price">${products.price}</td>
                 <td id="stock">${products.stock}</td>
