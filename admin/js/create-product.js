@@ -23,13 +23,6 @@ const createProductForm = () => {
   return createJson
 }
 
-const formClear = () => {
-  document.getElementById('title').value = ''
-  document.getElementById('description').value = ''
-  document.getElementById('price').value = ''
-  document.getElementById('stock').value = ''
-  document.getElementById('category').value = ''
-}
 
 btnCreate.addEventListener('click', async function () {
   let createJson = createProductForm()
@@ -47,23 +40,5 @@ btnCreate.addEventListener('click', async function () {
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
         .finally(location.replace('/products.html')) // Redirect to index.html)
-        //.finally(formClear()) // clear form after submit
-
-    
-
+        
 });
-
-  fetch('http://localhost:5000/api/store', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + localStorage.getItem('accessToken')
-    },
-    body: JSON.stringify(createJson)
-  })
-    .then((response) =>
-      response.ok ? response.json() : Promise.reject(response)
-    )
-    .catch((error) => console.log(error))
-    .finally(formClear()) // clear form after submit
-})
