@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }))
 // Getting the routes for products with verified token
 app.use('/api/store', require('./routes/storeRoutes'))
 // app.use('/api/store', verifyToken, require('./routes/storeRoutes'))
-// app.use('/user', require('./routes/userRoute'))
+app.use('/user', require('./routes/userRoute'))
 
 // Veryfi token
 function verifyToken(req, res, next) {
