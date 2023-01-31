@@ -1,7 +1,6 @@
 // button create product
 let btnCreate = document.getElementById('btn-create')
 
-
 const createProductForm = () => {
   // form values
   let title = document.getElementById('title').value
@@ -25,29 +24,28 @@ const createProductForm = () => {
 }
 
 const formClear = () => {
-    document.getElementById('title').value = ''
-    document.getElementById('description').value = ''
-    document.getElementById('price').value = ''
-    document.getElementById('stock').value = ''
-    document.getElementById('category').value = ''
+  document.getElementById('title').value = ''
+  document.getElementById('description').value = ''
+  document.getElementById('price').value = ''
+  document.getElementById('stock').value = ''
+  document.getElementById('category').value = ''
 }
 
 btnCreate.addEventListener('click', async function () {
   let createJson = createProductForm()
   console.log(createJson)
 
-    fetch('http://localhost:5000/api/store', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer ' + localStorage.getItem('accessToken')
-        },
-        body: JSON.stringify(createJson)
-    })
-        .then(response => response.ok ? response.json() : Promise.reject(response))
-        .catch(error => console.log(error))
-        .finally(formClear()) // clear form after submit
-
-    
-
-});
+  fetch('http://localhost:5000/api/store', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+    },
+    body: JSON.stringify(createJson)
+  })
+    .then((response) =>
+      response.ok ? response.json() : Promise.reject(response)
+    )
+    .catch((error) => console.log(error))
+    .finally(formClear()) // clear form after submit
+})
