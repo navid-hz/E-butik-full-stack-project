@@ -1,31 +1,31 @@
-const productsTable = document.getElementById('tbody');
+const productsTable = document.getElementById('tbody')
 
 const renderProductsTable = async () => {
-    await checkAccessToken();
+  await checkAccessToken()
 
-    let res = await fetch(ROOT + '/api/store', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-        }
-    });
-    let products = await res.json();
-    console.log(products);
-    
-    if (res.status !== 200) {
-        throw new Error('Cannot fetch the data');
-    } else {
-        if (products.length === 0) {
-            productsTable.innerHTML = `
+  let res = await fetch(ROOT + '/api/store', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+    }
+  })
+  let products = await res.json()
+  console.log(products)
+
+  if (res.status !== 200) {
+    throw new Error('Cannot fetch the data')
+  } else {
+    if (products.length === 0) {
+      productsTable.innerHTML = `
             <tr>
                 <td>There are no products</td>
             </tr>
-            `;
-        } else {
-            let template = '';
-            products.forEach(products => {
-                template += `
+            `
+    } else {
+      let template = ''
+      products.forEach((products) => {
+        template += `
                 <tr>
                 <td class="tm-product-name" id="title">${products.title}</td>
                 <td id="price">${products.price}</td>
@@ -42,11 +42,9 @@ const renderProductsTable = async () => {
                   </a>
                 </td>
               </tr>
-                `;
-            });
-        productsTable.innerHTML = template;
-        }
-         
+                `
+      })
+      productsTable.innerHTML = template
     }
     
     deleteProduct();
