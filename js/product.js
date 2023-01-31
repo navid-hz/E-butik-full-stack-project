@@ -48,20 +48,18 @@ const renderProduct = async () => {
                         <strong><p style="font-size: 20px;">${data.title}</p></strong>
     
                         <p><strong>Description: </strong>${data.description}</p>
-    
-                        <form class="d-flex justify-content-left">
-                            <!-- Default input -->
-                            <div class="form-outline me-1" style="width: 100px;">
-                                <label for="stock">
-                                    Stock: 
-                                </label>
-                                <input type="number" value="${data.stock}" class="form-control" />
-                            </div>
-                            <button class="btn btn-primary ms-1" type="submit">
-                                Add to cart
-                                <i class="fas fa-shopping-cart ms-1"></i>
-                            </button>
-                        </form>
+
+                        <p>
+                            <span class="me-1"><strong>Stock: </strong>
+                                ${data.stock}
+                            </span>
+                        </p>    
+                        <a href="admin/update-product.html?id=${data._id}">
+                                <button class="btn btn-primary ms-1" type="button">
+                                Edit
+                                <i class="fas fa-pen-to-square ms-1"></i>
+                                </button>
+                        </a>
                     </div>
                     <!--Content-->
                 </div>
