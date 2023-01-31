@@ -1,31 +1,33 @@
 const productsCardsContainer = document.getElementById(
   'products-cards-container'
 )
-console.log(localStorage.getItem('accessToken'));
+
+console.log(localStorage.getItem('accessToken'))
 const renderProducts = async () => {
-    await checkAccessToken();
+  await checkAccessToken()
 
-    //let url = 'http://localhost:5000/api/store';
-    let response1 = await fetch(ROOT + '/api/store', {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-        }});
+  //let url = 'http://localhost:5000/api/store';
+  let response1 = await fetch(ROOT + '/api/store', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+    }
+  })
 
-    let products = await response1.json();
-    console.log(products);
-    
-    if (response1.status !== 200) {
-        throw new Error('Cannot fetch the data');
-    } else {
-      let template = ''
-      products.forEach((products) => {
-        template += `
+  let products = await response1.json()
+  console.log(products)
+
+  if (response1.status !== 200) {
+    throw new Error('Cannot fetch the data')
+  } else {
+    let template = ''
+    products.forEach((products) => {
+      template += `
                     <div class="col-lg-3 col-md-6 mb-4">
                         <div class="card">
                             <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light"     data-mdb-ripple-color="light">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"           class="w-100" />
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="w-100" />
                                 <a href="product.html?id=${products._id}">
                                     <div class="hover-overlay">
                                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
@@ -34,7 +36,9 @@ const renderProducts = async () => {
                             </div>
                             <div class="card-body">
                                 <a href="" class="text-reset">
-                                    <h5 class="card-title mb-2">${products.title}</h5>
+                                    <h5 class="card-title mb-2">${
+                                      products.title
+                                    }</h5>
                                 </a>
                                 <a href="" class="text-reset ">
                                     <p>${products.category.join()}</p>
@@ -43,13 +47,11 @@ const renderProducts = async () => {
                             </div>
                         </div>
                     </div>
-                `;
-            });
-            productsCardsContainer.innerHTML = template;
-        }
-        
-    }   
-
+                `
+    })
+    productsCardsContainer.innerHTML = template
+  }
+}
 
 window.addEventListener('DOMContentLoaded', () => renderProducts())
 
