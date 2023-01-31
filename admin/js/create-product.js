@@ -18,7 +18,6 @@ const createProductForm = () => {
     price: price,
     stock: stock,
     category: category,
-    date: new Date()
   }
   return createJson
 }
