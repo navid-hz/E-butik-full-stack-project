@@ -1,35 +1,34 @@
+const id = new URLSearchParams(window.location.search).get('id')
+console.log(id)
 
-const id = new URLSearchParams(window.location.search).get('id');
-console.log(id);
-
-let updateBtn = document.getElementById('btn-update');
+let updateBtn = document.getElementById('btn-update')
 
 const getProduct = async (id) => {
-    await checkAccessToken();
+  await checkAccessToken()
 
-    const res = await fetch(ROOT + '/api/store/' + id, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-        }
-    });
-    if (!res.ok) {
-        throw new Error('Could not fetch');
-    } else {
-        const data = await res.json();
-        document.getElementById('title').value = data.title;
-    document.getElementById('description').value = data.description;
-    document.getElementById('price').value = data.price;
-    document.getElementById('stock').value = data.stock;
-    document.getElementById('category').value = data.category;
-        console.log(data);
-        //return fillForm(data);
+  const res = await fetch(ROOT + '/api/store/' + id, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken')
     }
+  })
+  if (!res.ok) {
+    throw new Error('Could not fetch')
+  } else {
+    const data = await res.json()
+    document.getElementById('title').value = data.title
+    document.getElementById('description').value = data.description
+    document.getElementById('price').value = data.price
+    document.getElementById('stock').value = data.stock
+    document.getElementById('category').value = data.category
+    console.log(data)
+    //return fillForm(data);
+  }
 }
 //let main = document.getElementById('main');
 
-console.log(getProduct(id));
+console.log(getProduct(id))
 //console.log(data);
 // const fillForm =  async (data) => {
 //     document.getElementById('title').value = data.title;
@@ -39,12 +38,11 @@ console.log(getProduct(id));
 //     document.getElementById('category').value = data.category;
 // //}
 
-
 const updateProduct = async () => {
-    await checkAccessToken();
+  await checkAccessToken()
 
-    let updateJson = updateProductForm();
-    console.log(updateJson);
+  let updateJson = updateProductForm()
+  console.log(updateJson)
 
     fetch(ROOT + '/api/store/' + id, {
         method: 'PUT',
@@ -60,21 +58,21 @@ const updateProduct = async () => {
 }
 
 const updateProductForm = () => {
-    let title = document.getElementById('title').value;
-    let description = document.getElementById('description').value;
-    let price = document.getElementById('price').value;
-    let stock = document.getElementById('stock').value;
-    let category = document.getElementById('category').value;
-    let updateJson = {
-        title: title,
-        description: description,
-        price: price,
-        stock: stock,
-        category: category
-    }
-    return updateJson;
+  let title = document.getElementById('title').value
+  let description = document.getElementById('description').value
+  let price = document.getElementById('price').value
+  let stock = document.getElementById('stock').value
+  let category = document.getElementById('category').value
+  let updateJson = {
+    title: title,
+    description: description,
+    price: price,
+    stock: stock,
+    category: category
+  }
+  return updateJson
 }
 
 updateBtn.addEventListener('click', () => {
-    updateProduct();
+  updateProduct()
 })
