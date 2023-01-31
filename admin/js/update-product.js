@@ -23,8 +23,9 @@ const getProduct = async (id) => {
 }
 //let main = document.getElementById('main');
 
-
-const fillForm =  (data) => {
+console.log(getProduct(id));
+console.log(data);
+const fillForm =  async (data) => {
     document.getElementById('title').value = data.title;
     document.getElementById('description').value = data.description;
     document.getElementById('price').value = data.price;
