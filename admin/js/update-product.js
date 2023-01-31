@@ -18,6 +18,7 @@ const getProduct = async (id) => {
         throw new Error('Could not fetch');
     } else {
         const data = await res.json();
+        console.log(data);
         return fillForm(data);
     }
 }
