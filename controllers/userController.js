@@ -1,25 +1,25 @@
-// const User = require('../models/userSchema')
-// const bcrypt = require('bcrypt')
-// const jwt = require('jsonwebtoken')
+const User = require('../models/userSchema')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
-// // Function for register user
-// exports.registerUser = async (req, res) => {
-//   try {
-//     const hashedPassword = await bcrypt.hash(req.body.password, 10)
+// Function for register user
+exports.registerUser = async (req, res) => {
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10)
 
-//     const user = new User({
-//       username: req.body.username,
-//       password: hashedPassword
-//     })
+    const user = new User({
+      username: req.body.username,
+      password: hashedPassword
+    })
 
-//     await user.save()
-//     res.json({ message: 'You just got registered' })
-//   } catch (error) {
-//     res.json({ message: error })
-//   }
-// }
+    await user.save()
+    res.json({ message: 'You just got registered' })
+  } catch (error) {
+    res.json({ message: error })
+  }
+}
 
-// // Function for generate token
+// Function for generate token
 // exports.generateToken = async (req, res) => {
 //   try {
 //     const user = await User.findOne({ username: req.body.username })
