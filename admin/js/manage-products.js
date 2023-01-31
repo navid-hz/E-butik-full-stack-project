@@ -36,9 +36,9 @@ const renderProductsTable = async () => {
                   <i class="fa-solid fa-pen-to-square"></i>
                   </a>
                 </td>
-                <td>
-                  <a href="" class="tm-product-delete-link del-btn">
-                    <i class="far fa-trash-alt tm-product-delete-icon"></i>
+                <td class='del-btn'>
+                  <a href="" class="tm-product-delete-link" data-id="${products._id}">
+                    <i class="far fa-trash-alt tm-product-delete-icon" ></i>
                   </a>
                 </td>
               </tr>
@@ -48,32 +48,42 @@ const renderProductsTable = async () => {
         }
          
     }
-    document.getElementsByClassName('del-btn').addEventListener('click', deleteProduct(products._id));
-
-    //console.log(document.getElementById('del-btn')); 
-    console.log(products._id);
-    // document.getElementById('setting-btn').addEventListener('click', () => updateProduct(products._id));
+    
+    deleteProduct();
 }
 
 const deleteProduct = async (id) => {
     await checkAccessToken();
-    
-    let res2 = await fetch(ROOT + '/api/store/' + id, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-        }
-    });
-    let data = await res2.json();
-    console.log(data);
+    const delBtn = document.getElementsByClassName('del-btn');
 
-    if (res2.status !== 200) {
-        throw new Error('Cannot delete the data');
-    } else {
-        renderProductsTable();
+    for (let i of delBtn) {
+        i.addEventListener('click', async (e) => {
+            e.preventDefault();
+            let id = e.target.parentNode.dataset.id;
+            console.log(e.target);
+            console.log(id);
+            try {
+                const res3 = await fetch(ROOT + '/api/store/' + id, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+
+                    }
+                });
+                console.log(res3);
+                location.reload();
+            } catch (error) {
+                console.log(error);
+            }
+        });
     }
 }
+
+
+    
+
+
     
 
 window.addEventListener('DOMContentLoaded', () =>  renderProductsTable());

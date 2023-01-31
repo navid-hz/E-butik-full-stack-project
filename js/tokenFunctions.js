@@ -3,7 +3,7 @@ const ROOT = 'http://localhost:5000'
 
 async function genetateAccessToken() {
   try {
-    const response = await fetch( ROOT + '/user/register', {
+    const response = await fetch(ROOT + '/user/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
