@@ -49,6 +49,7 @@ const renderProductsTable = async () => {
     
     deleteProduct();
 }
+}
 
 const deleteProduct = async (id) => {
     await checkAccessToken();
