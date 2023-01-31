@@ -56,7 +56,7 @@ const updateProduct = async () => {
     })
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
-        .finally(open(ROOT + '/admin/creat-product.html')) // clear form after submit
+        .finally(location.replace('/products.html'))
 }
 
 const updateProductForm = () => {
