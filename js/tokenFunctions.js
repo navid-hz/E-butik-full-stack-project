@@ -2,6 +2,7 @@
 const ROOT = 'http://localhost:5000'
 
 async function genetateAccessToken() {
+    await checkAccessToken();
   try {
     const response = await fetch( ROOT + '/user/register', {
       method: 'POST',
@@ -24,11 +25,7 @@ async function genetateAccessToken() {
   }
 }
 async function checkAccessToken() {
-  if (localStorage.getItem('accessToken')) {
-    console.log('accessToken is present')
-    ;('accessToken')
-    console.log(localStorage.getItem('accessToken'))
-  } else {
-    await genetateAccessToken()
+  if (!localStorage.getItem('accessToken')) {
+     genetateAccessToken()
   }
 }
