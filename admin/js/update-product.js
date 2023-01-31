@@ -18,21 +18,26 @@ const getProduct = async (id) => {
         throw new Error('Could not fetch');
     } else {
         const data = await res.json();
+        document.getElementById('title').value = data.title;
+    document.getElementById('description').value = data.description;
+    document.getElementById('price').value = data.price;
+    document.getElementById('stock').value = data.stock;
+    document.getElementById('category').value = data.category;
         console.log(data);
-        return fillForm(data);
+        //return fillForm(data);
     }
 }
 //let main = document.getElementById('main');
 
 console.log(getProduct(id));
-console.log(data);
-const fillForm =  async (data) => {
-    document.getElementById('title').value = data.title;
-    document.getElementById('description').value = data.description;
-    document.getElementById('price').value = data.price;
-    document.getElementById('stock').value = data.stock;
-    document.getElementById('category').value = data.category;
-}
+//console.log(data);
+// const fillForm =  async (data) => {
+//     document.getElementById('title').value = data.title;
+//     document.getElementById('description').value = data.description;
+//     document.getElementById('price').value = data.price;
+//     document.getElementById('stock').value = data.stock;
+//     document.getElementById('category').value = data.category;
+// //}
 
 
 const updateProduct = async () => {
