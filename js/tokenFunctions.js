@@ -2,7 +2,6 @@
 const ROOT = 'http://localhost:5000'
 
 async function genetateAccessToken() {
-    await checkAccessToken();
   try {
     const response = await fetch( ROOT + '/user/register', {
       method: 'POST',
