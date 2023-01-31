@@ -1,4 +1,5 @@
 // localStorage.setItem('accessToken', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZGF0ZSI6IjIwMjMtMDEtMjlUMTU6NTU6MDEuMDg4WiIsImlhdCI6MTY3NTA5MjEwNX0.2ESXIY75b_ojKmG4QwyJZlpgRUulXlvngDDFMGCnZ0M");
+localStorage.clear( )
 const ROOT = 'http://localhost:5000'
 
 async function genetateAccessToken() {

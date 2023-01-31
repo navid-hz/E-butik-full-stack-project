@@ -44,9 +44,11 @@ btnCreate.addEventListener('click', async function () {
         },
         body: JSON.stringify(createJson)
     })
+
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
-        .finally(formClear()) // clear form after submit
+        .finally(location.replace('/products.html')) // Redirect to index.html)
+        //.finally(formClear()) // clear form after submit
 
     
 
