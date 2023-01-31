@@ -9,7 +9,7 @@ async function genetateAccessToken() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        username: 'newtoke',
+        username: 'newnew',
         password: '20232023'
       })
     })

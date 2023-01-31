@@ -36,8 +36,8 @@ const renderProductsTable = async () => {
                   <i class="fa-solid fa-pen-to-square"></i>
                   </a>
                 </td>
-                <td id="del-btn">
-                  <a href="" class="tm-product-delete-link">
+                <td>
+                  <a href="" class="tm-product-delete-link del-btn">
                     <i class="far fa-trash-alt tm-product-delete-icon"></i>
                   </a>
                 </td>
@@ -46,9 +46,12 @@ const renderProductsTable = async () => {
             });
         productsTable.innerHTML = template;
         }
-        
+         
     }
-    document.getElementById('del-btn').addEventListener('click', () => deleteProduct(products._id));
+    document.getElementsByClassName('del-btn').addEventListener('click', deleteProduct(products._id));
+
+    //console.log(document.getElementById('del-btn')); 
+    console.log(products._id);
     // document.getElementById('setting-btn').addEventListener('click', () => updateProduct(products._id));
 }
 
