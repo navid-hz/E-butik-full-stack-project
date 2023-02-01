@@ -1,7 +1,11 @@
 const productsTable = document.getElementById('tbody')
 
+// render products table
+
 const renderProductsTable = async () => {
   await checkAccessToken()
+
+  // get products
 
   let res = await fetch(ROOT + '/api/store', {
     method: 'GET',
@@ -11,7 +15,8 @@ const renderProductsTable = async () => {
     }
   })
   let products = await res.json()
-  console.log(products)
+  
+  // Error handling
 
   if (res.status !== 200) {
     throw new Error('Cannot fetch the data')
@@ -23,6 +28,9 @@ const renderProductsTable = async () => {
             </tr>
             `
     } else {
+
+      // create table
+
       let template = ''
       products.forEach((products) => {
         template += `
@@ -44,12 +52,17 @@ const renderProductsTable = async () => {
               </tr>
                 `
       })
+
+      // insert table
+
       productsTable.innerHTML = template
     }
     
     deleteProduct();
 }
 }
+
+// delete product function
 
 const deleteProduct = async (id) => {
     await checkAccessToken();
@@ -59,8 +72,7 @@ const deleteProduct = async (id) => {
         i.addEventListener('click', async (e) => {
             e.preventDefault();
             let id = e.target.parentNode.dataset.id;
-            console.log(e.target);
-            console.log(id);
+            
             try {
                 const res3 = await fetch(ROOT + '/api/store/' + id, {
                     method: 'DELETE',
@@ -70,7 +82,7 @@ const deleteProduct = async (id) => {
 
                     }
                 });
-                console.log(res3);
+              
                 location.reload();
             } catch (error) {
                 console.log(error);
@@ -84,5 +96,6 @@ const deleteProduct = async (id) => {
 
 
     
+// call action function
 
 window.addEventListener('DOMContentLoaded', () =>  renderProductsTable());
