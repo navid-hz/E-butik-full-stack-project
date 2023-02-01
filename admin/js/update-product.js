@@ -54,7 +54,7 @@ const updateProduct = async () => {
     })
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
-        .finally(location.replace('/products.html'))
+        .finally(location.replace('../products.html'))
 }
 
 const updateProductForm = () => {

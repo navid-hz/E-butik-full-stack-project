@@ -38,6 +38,6 @@ btnCreate.addEventListener('click', async function () {
 
         .then(response => response.ok ? response.json() : Promise.reject(response))
         .catch(error => console.log(error))
-        .finally(location.replace('/products.html')) // Redirect to index.html)
+        .finally(location.replace('../products.html')) // Redirect to index.html)
         
 });
