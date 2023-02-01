@@ -18,32 +18,3 @@ exports.registerUser = async (req, res) => {
     res.json({ message: error })
   }
 }
-
-// Function for generate token
-// exports.generateToken = async (req, res) => {
-//   try {
-//     const user = await User.findOne({ username: req.body.username })
-
-//     // Check if the password correct
-//     const isPasswordCorrect = await bcrypt.compare(
-//       req.body.password,
-//       user.password
-//     )
-
-//     if (user && isPasswordCorrect) {
-//       const payLoad = {
-//         username: user.username,
-//         date: user.date
-//       }
-
-//       // Generate token if user and password correct
-//       const accessToken = jwt.sign(payLoad, process.env.JWT_SECRET)
-
-//       res.json({ accessToken: accessToken })
-//     } else {
-//       res.json({ message: 'Incorrect user information' })
-//     }
-//   } catch (error) {
-//     res.json({ message: error })
-//   }
-// }
