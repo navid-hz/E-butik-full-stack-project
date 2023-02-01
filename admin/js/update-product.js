@@ -1,11 +1,13 @@
+// Get the product id from the url
 const id = new URLSearchParams(window.location.search).get('id')
-console.log(id)
+
 
 let updateBtn = document.getElementById('btn-update')
 
+// Get the product from the database
 const getProduct = async (id) => {
   await checkAccessToken()
-
+  // Get product
   const res = await fetch(ROOT + '/api/store/' + id, {
     method: 'GET',
     headers: {
@@ -13,37 +15,29 @@ const getProduct = async (id) => {
       Authorization: 'Bearer ' + localStorage.getItem('accessToken')
     }
   })
+  // Error handling
   if (!res.ok) {
     throw new Error('Could not fetch')
   } else {
+    // fill the form with the product data
     const data = await res.json()
     document.getElementById('title').value = data.title
     document.getElementById('description').value = data.description
     document.getElementById('price').value = data.price
     document.getElementById('stock').value = data.stock
     document.getElementById('category').value = data.category
-    console.log(data)
-    //return fillForm(data);
+    
+    
   }
 }
-//let main = document.getElementById('main');
 
-console.log(getProduct(id))
-//console.log(data);
-// const fillForm =  async (data) => {
-//     document.getElementById('title').value = data.title;
-//     document.getElementById('description').value = data.description;
-//     document.getElementById('price').value = data.price;
-//     document.getElementById('stock').value = data.stock;
-//     document.getElementById('category').value = data.category;
-// //}
-
+// Update the product
 const updateProduct = async () => {
   await checkAccessToken()
 
   let updateJson = updateProductForm()
-  console.log(updateJson)
-
+  
+    // put request
     fetch(ROOT + '/api/store/' + id, {
         method: 'PUT',
         headers: {
@@ -56,7 +50,7 @@ const updateProduct = async () => {
         .catch(error => console.log(error))
         .finally(location.replace('../products.html'))
 }
-
+// create json object withe new product data
 const updateProductForm = () => {
   let title = document.getElementById('title').value
   let description = document.getElementById('description').value

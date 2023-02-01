@@ -1,15 +1,18 @@
 // button create product
+
 let btnCreate = document.getElementById('btn-create')
 
+// form values
+
 const createProductForm = () => {
-  // form values
+  
   let title = document.getElementById('title').value
   let description = document.getElementById('description').value
   let price = document.getElementById('price').value
   let stock = document.getElementById('stock').value
   let category = document.getElementById('category').value
 
-  console.log(category)
+  
 
   // create json object
   let createJson = {
@@ -22,11 +25,11 @@ const createProductForm = () => {
   return createJson
 }
 
-
+// create product function
 btnCreate.addEventListener('click', async function () {
   let createJson = createProductForm()
-  console.log(createJson)
-
+  await checkAccessToken()
+    // post request
     fetch('http://localhost:5000/api/store', {
         method: 'POST',
         headers: {

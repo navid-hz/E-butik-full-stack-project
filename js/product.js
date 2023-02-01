@@ -1,12 +1,13 @@
+//Get the id from the url
 const id = new URLSearchParams(window.location.search).get('id');
-console.log(id);
+
 
 let main = document.getElementById('main');
 
-
+// render product
 const renderProduct = async () => {
     await   checkAccessToken();
-
+    // Get product
     const res = await fetch(ROOT + '/api/store/' + id, {
         method: 'GET',
         headers: {
@@ -14,11 +15,12 @@ const renderProduct = async () => {
             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
         }
     });
+    // Error handling
     if (!res.ok) {
         throw new Error('Could not fetch');
     } else {
         const data = await res.json();
-        console.log(data);
+        // create product html
         let html = `
         <div class="container mt-5">
             <!--Grid row-->
@@ -104,12 +106,12 @@ const renderProduct = async () => {
             <!--Grid row-->
         </div>
     `;
-
+        //insert product html
     main.innerHTML = html;
     }
     
 }
     
-
+//call action function
 renderProduct();   
     

@@ -1,6 +1,7 @@
 
 const ROOT = 'http://localhost:5000'
 
+// generate access token
 async function genetateAccessToken() {
   try {
     const response = await fetch(ROOT + '/user/register', {
@@ -23,6 +24,7 @@ async function genetateAccessToken() {
     console.log(error)
   }
 }
+// check access token exists
 async function checkAccessToken() {
   if (!localStorage.getItem('accessToken')) {
      genetateAccessToken()
