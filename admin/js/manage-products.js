@@ -30,7 +30,7 @@ const renderProductsTable = async () => {
                 <td class="tm-product-name" id="title">${products.title}</td>
                 <td id="price">${products.price}</td>
                 <td id="stock">${products.stock}</td>
-                <td id="date">${products.date}</td>
+                <td id="date">${products.date.slice(0, 10)}</td>
                 <td id="setting-btn">
                   <a href="update-product.html?id=${products._id}" class="tm-product-delete-link">
                   <i class="fa-solid fa-pen-to-square"></i>
